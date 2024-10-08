@@ -1,0 +1,80 @@
+\RequirePackage[reqno]{amsmath} 
+\documentclass[11pt,reqno]{amsart}
+\usepackage[foot]{amsaddr}
+\usepackage{mypub}
+\usepackage{mytodo}
+\setcounter{tocdepth}{1}
+\usepackage{geometry}
+\geometry{
+   includeheadfoot,
+   margin=2.54cm
+}
+\usepackage[backend=biber,giveninits=true,url=true,style=alphabetic,citestyle=alphabetic,isbn=false,backref]{biblatex}
+\addbibresource{bibgraf.bib}
+% you need to run the python program to convert bbl into a style, check the names
+\usepackage{biblatex-files}
+%\usepackage[biblabel]{cite}
+% run latex twice copy from the pdf file the bibitems into the latex file
+% \usepackage{biblatex2bibitem}
+\numberwithin{equation}{section}
+%% \usepackage[pagewise,mathlines,displaymath]{lineno}
+%% \linenumbers
+\usepackage{thmtools}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\usepackage{pfsimple}
+\usepackage{xr-hyper}
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{cleveref}
+\usepackage{cleveref-nameref}
+\usepackage{cleveref-fix}
+\externaldocument[A-]{Speck-Rodnianski_Stability_of_Irrotational_Euler-Einstein}
+\usepackage{subfiles}
+\begin{document}
+\tableofcontents
+\listoftheorems[showall,ignore={remark},numwidth=3em]
+\renewenvironment{proof}[1][\proofname]{{\bfseries Proof of #1.}}
+%\renewenvironment{proof}[1][\proofname]{{\bfseries Proof of #1.}}{\hfill$\blacksquare$}
+%\renewenvironment{proof}[1][\proofname]{{\bfseries Proof of #1.}}{\hfill\textbf{Q.E.D}}
+\title[Global existence]{Global  existence}
+\author[U.~Brauer]{Uwe Brauer}
+\address{Uwe Brauer Departamento de Matemática Aplicada\\ Universidad
+Complutense Madrid 28040 Madrid, Spain} \email{oub@mat.ucm.es}
+\thanks{U.~B.~gratefully acknowledges support from Grant  PID2019-103860GB-I00 by
+MINECO, Spain and UCM-GR17-920894.} 
+\author[L.~Karp]{Lavi Karp}
+\address{%
+Lavi Karp
+Department of Mathematics\\ ORT Braude College\\
+P.O. 
+Box 78, 21982 Karmiel\\ Israel}
+\email{karp@braude.ac.il}
+\subjclass{35Q31 (35B30 35L45 35L60)}
+\keywords{}
+\begin{abstract}
+\end{abstract}
+\maketitle{}
+\tableofcontents
+\makeatletter
+\providecommand\@dotsep{5}
+\makeatother
+\listoftodos\relax
+\def\biblio{}
+\subfile{section1-intro.tex}
+\subfile{section2-preliminaries.tex}
+\subfile{section3-fourier.tex}
+\subfile{section4-sh.tex}
+\subfile{section5-blowup.tex}
+\bibliographystyle{amsalpha-url} 
+\bibliography{bibgraf}
+\printbibliography
+\printbibitembibliography
+\end{document}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% eval: (my-set-british)
+%%% sentence-end-double-space: nil
+%%% TeX-master: t
+%%% End:
